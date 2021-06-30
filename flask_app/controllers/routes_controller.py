@@ -16,32 +16,53 @@ def dashboard():
     render_template('dashboard.html')
 
 @app.route('/login_page')
-def dashboard():
-    if 'uuid' not in session:
-        return redirect('/')
-    render_template('login_page.html')
+def login():
+    return render_template('login_page.html')
 
 @app.route('/register_page')
-def dashboard():
-    if 'uuid' not in session:
-        return redirect('/')
-    render_template('register_page.html')
+def register():
+    return render_template('register_page.html')
 
 @app.route('/dishes')
-def dashboard():
+def dishes():
     if 'uuid' not in session:
         return redirect('/')
-    render_template('dishes.html')
+    return render_template('dishes.html')
+
+@app.route('/dish/<int:id>')
+def dish_id():
+    if 'uuid' not in session:
+        return redirect('/')
+    return render_template('dish.html')
 
 @app.route('/create_dish')
-def dashboard():
+def create_dish():
     if 'uuid' not in session:
         return redirect('/')
-    render_template('create_dish.html')
+    return render_template('create_dish.html')
 
 @app.route('/recipe_page')
-def dashboard():
+def recipe_page():
     if 'uuid' not in session:
         return redirect('/')
-    render_template('recipe_page.html')
+    return render_template('recipe_page.html')
 
+@app.route('/family_page')
+def family_page():
+    if 'uuid' not in session:
+        return redirect('/')
+    return render_template('family_page.html')
+
+@app.route('/user/edit')
+def edit_user():
+    if 'uuid' not in session:   
+        return redirect('/login')
+    context = {
+        "user" : User.get_one(session['uuid'])
+    }
+    return render_template('edit_user.html', **context)
+
+@app.route('/family/edit')
+def edit_family():
+#create a validation that someone has the ability to edit a family page
+    return render_template('edit_user.html')

@@ -11,6 +11,8 @@ class Recipe:
         self.ingredient_list = data['ingredient_list']
         self.directions = data['directions']
         self.description = data['description']
+        self.spice_level = data['spice_level']
+        self.genre = data['genre']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         self.users_id = data['users_id']
@@ -18,10 +20,28 @@ class Recipe:
 #C
     @classmethod
     def new_recipe(cls, info):
-        query = 'INSERT INTO recipes (recipe_name, ingredient_list, directions, description) VALUES (%()s,%()s,%()s'
+        query = 'INSERT INTO recipes (recipe_name, ingredient_list, directions, description, spice_level, genre, user_id) VALUES (%(recipe_name)s,%(ingredient_list)s,%(directions)s,%(description)s,%(spice_level)s,%(genre)s,%(user_id)s);'
 
+        data = {
+            "recipe_name" : info['recipe_name'],
+            "ingredient_list" : info['ingredient_list'],
+            "directions" : info['directions'],
+            "description" : info['description'],
+            "spice_level" : info['spice_level'],
+            "genre" : info['genre']
+            "user_id" : info['user_id']
+        }
+        return connectToMySQL(DATABASE).query_db(query, data)
 
 #R
+    @classmethod
+    def get_all_recipes(cls):
+        query = "SELECT * FROM recipes;"
+        results = connectToMySQL(DATABASE).query_db(query)
+        recipes = []
+        for one_recipe in results:
+            recipes.append(cls(one_recipe))
+            return recipes
 
 
 #U

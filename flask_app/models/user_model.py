@@ -57,7 +57,7 @@ class User: #pascal case -> first upper, rest lower, word is singular
         data = {
             "name": name
         }
-        result = connectToMySQL(DATABASE_SCHEMA).query_db(query, data)   
+        result = connectToMySQL(DATABASE_SCHEMA).query_db(query, data)
         return result
 
     @classmethod
@@ -66,7 +66,25 @@ class User: #pascal case -> first upper, rest lower, word is singular
         data = {
             "email": email
         }
-        result = connectToMySQL(DATABASE_SCHEMA).query_db(query, data)   
+        result = connectToMySQL(DATABASE_SCHEMA).query_db(query, data)
+        return result
+
+    @classmethod
+    def get_users_families(cls, id):
+        query = "SELECT family_name FROM families JOIN users_has_families ON users_has_families.family_id = families.id JOIN users ON users_has_families.user_id = users.id WHERE users.id = %(id)s;"
+        data = {
+            "id" : id
+        }
+        result = connectToMySQL(DATABASE_SCHEMA).query_db(query, data)
+        return result
+
+    @classmethod
+    def get_users_recipes(cls, id):
+        query = "SELECT recipe_name FROM recipes JOIN users ON users.id = user_id WHERE users.id = %(id)s;"
+        data = {
+            "id" : id
+        }
+        result = connectToMySQL(DATABASE_SCHEMA).query_db(query, data)
         return result
     
 #U
@@ -76,7 +94,7 @@ class User: #pascal case -> first upper, rest lower, word is singular
         data = {
             "first_name": info['first_name'],
             "last_name": info['last_name'],
-            "email": info['email'],     
+            "email": info['email'],
             "pw": info['pw'],
             "id": info['id']
         }

@@ -19,15 +19,6 @@ def user_create():
     print(session['uuid'])
     return redirect('/')
 
-@app.route('/user/edit')
-def edit_user():
-    if 'uuid' not in session:   
-        return redirect('/login')
-    context = {
-        "user" : User.get_one(session['uuid'])
-    }
-    return render_template('edit_user.html', **context)
-
 @app.route('/user/update', methods=['POST'])
 def update_user():
     user = User.get_one(session['uuid'])
