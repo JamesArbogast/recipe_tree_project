@@ -20,7 +20,7 @@ class Recipe:
 #C
     @classmethod
     def new_recipe(cls, info):
-        query = 'INSERT INTO recipes (recipe_name, ingredient_list, directions, description, spice_level, genre, user_id) VALUES (%(recipe_name)s,%(ingredient_list)s,%(directions)s,%(description)s,%(spice_level)s,%(genre)s,%(user_id)s);'
+        query = 'INSERT INTO recipes (recipe_name, ingredient_list, directions, description, spice_level, genre, users_id) VALUES (%(recipe_name)s,%(ingredient_list)s,%(directions)s,%(description)s,%(spice_level)s,%(genre)s,%(users_id)s);'
 
         data = {
             "recipe_name" : info['recipe_name'],
@@ -28,8 +28,8 @@ class Recipe:
             "directions" : info['directions'],
             "description" : info['description'],
             "spice_level" : info['spice_level'],
-            "genre" : info['genre']
-            "user_id" : info['user_id']
+            "genre" : info['genre'],
+            "users_id" : info['users_id']
         }
         return connectToMySQL(DATABASE).query_db(query, data)
 
@@ -54,7 +54,7 @@ class Recipe:
 #U
     @classmethod
     def update_recipe(cls, id):
-        query = "INSERT INTO recipes SET (recipe_name = %(recipe_name)s, ingredient_list = %(ingredient_list)s, directions = %(directions)s, description = %(description)s, spice_level = %(spice_level)s, genre = %(genre)s, user_id = %(user_id)s);" 
+        query = "INSERT INTO recipes SET (recipe_name = %(recipe_name)s, ingredient_list = %(ingredient_list)s, directions = %(directions)s, description = %(description)s, spice_level = %(spice_level)s, genre = %(genre)s, user_id = %(users_id)s);" 
 
         data = {
             "recipe_name" : info['recipe_name'],
@@ -62,10 +62,10 @@ class Recipe:
             "directions" : info['directions'],
             "description" : info['description'],
             "spice_level" : info['spice_level'],
-            "genre" : info['genre']
-            "user_id" : info['user_id']
+            "genre" : info['genre'],
+            "users_id" : info['users_id']
         }
-        return connectToMySQL(DATABASE).query_db(query, data) "
+        return connectToMySQL(DATABASE).query_db(query, data) 
 
 
 #D
