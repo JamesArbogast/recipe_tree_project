@@ -43,9 +43,59 @@ class Recipe:
             recipes.append(cls(one_recipe))
             return recipes
 
+    @classmethod
+    def get_recipe(cls,id):
+        query = "SELECT * FROM recipes where id = %(id)a;"
+        data = {
+            "id" : id
+        }
+        return connectToMySQL(DATABASE).query_db(query, data)
 
 #U
+    @classmethod
+    def update_recipe(cls, id):
+        query = "INSERT INTO recipes SET (recipe_name = %(recipe_name)s, ingredient_list = %(ingredient_list)s, directions = %(directions)s, description = %(description)s, spice_level = %(spice_level)s, genre = %(genre)s, user_id = %(user_id)s);" 
 
+        data = {
+            "recipe_name" : info['recipe_name'],
+            "ingredient_list" : info['ingredient_list'],
+            "directions" : info['directions'],
+            "description" : info['description'],
+            "spice_level" : info['spice_level'],
+            "genre" : info['genre']
+            "user_id" : info['user_id']
+        }
+        return connectToMySQL(DATABASE).query_db(query, data) "
 
 
 #D
+
+    @classmethod
+    def delete_recipe(cls, id):
+        query = "DELETE FROM recipes WHERE ID = %(id)s;"
+        data = {
+            "id" : id
+        }
+        connectToMySQL(DATABASE).query_db(query, data)
+        return print(f"The recipe with ID: {id} has been permanently removed!")
+
+
+    @staticmethod
+    def validate_user(recipe):
+        is_valid = True # we assume this is true
+        if len(recipe['recipe_name']) < 4:
+            flash("Recipe name should be more than 4 characters")
+            is_valid = False
+        if len(recipe['directions']) < 60:
+            flash("Directions should have a minimum of 60 characters!")
+            is_valid = False
+        if len(recipe['description']) < 25:
+            flash("Description needs to be at least 25 characters!")
+            is_valid = False
+        if len(recipe['spice_level']) < 0:
+            flash("Use a proper spice level!")
+            is_valid = False
+        if len(recipe['genre']) < 3:
+            flash("genre must be at least 3 characters")
+            is_valid = False
+        return is_valid
