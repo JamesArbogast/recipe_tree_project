@@ -20,7 +20,7 @@ class Recipe:
 #C
     @classmethod
     def new_recipe(cls, info):
-        query = "INSERT INTO recipes (recipe_name, ingredient_list, directions, description, spice_level, genre, user_id) VALUES ('%()s', '%()s','%()s, %()s','%()s', %()s , '%()s', %()s);"
+        query = 'INSERT INTO recipes (recipe_name, ingredient_list, directions, description, spice_level, genre, users_id) VALUES (%(recipe_name)s,%(ingredient_list)s,%(directions)s,%(description)s,%(spice_level)s,%(genre)s,%(users_id)s);'
 
         data = {
             "recipe_name" : info['recipe_name'],
@@ -29,7 +29,7 @@ class Recipe:
             "description" : info['description'],
             "spice_level" : info['spice_level'],
             "genre" : info['genre'],
-            "user_id" : info['user_id']
+            "users_id" : info['users_id']
         }
         return connectToMySQL(DATABASE).query_db(query, data)
 
@@ -44,18 +44,17 @@ class Recipe:
             return recipes
 
     @classmethod
-    def get_recipe(cls, id):
-        query = "SELECT * FROM recipe where id = %(id)s"
-
+    def get_recipe(cls,id):
+        query = "SELECT * FROM recipes where id = %(id)a;"
         data = {
-            'recipe_id' : id
+            "id" : id
         }
         return connectToMySQL(DATABASE).query_db(query, data)
 
 #U
     @classmethod
-    def update_recipe(cls, info):
-        query = "UPDATE recipes set recipe_name = %(recipe_name)s, ingredient_list = %(ingredient_list)s, directions = %(directions)s, description = %(description)s, spice_level = %(spice_level)s, genre = %(genre)s, user_id = %(user_id)s"
+    def update_recipe(cls, id):
+        query = "INSERT INTO recipes SET (recipe_name = %(recipe_name)s, ingredient_list = %(ingredient_list)s, directions = %(directions)s, description = %(description)s, spice_level = %(spice_level)s, genre = %(genre)s, user_id = %(users_id)s);" 
 
         data = {
             "recipe_name" : info['recipe_name'],
@@ -64,9 +63,10 @@ class Recipe:
             "description" : info['description'],
             "spice_level" : info['spice_level'],
             "genre" : info['genre'],
-            "user_id" : info['user_id']
+            "users_id" : info['users_id']
         }
-        return connectToMySQL(DATABASE).query_db(query, data)
+        return connectToMySQL(DATABASE).query_db(query, data) 
+
 
 #D
 
@@ -79,14 +79,24 @@ class Recipe:
         connectToMySQL(DATABASE).query_db(query, data)
         return print(f"The recipe with ID: {id} has been permanently removed!")
 
-
 #D
 
-    @classmethod
-    def delete_recipe(cls, id):
-        query = 'Delete from recipes where id = %(id)s'
-        data = {
-            'id' : id
-        }
-        connectToMySQL(DATABASE).query_db(query, data)
-        return id
+    @staticmethod
+    def validate_user(recipe):
+        is_valid = True # we assume this is true
+        if len(recipe['recipe_name']) < 4:
+            flash("Recipe name should be more than 4 characters")
+            is_valid = False
+        if len(recipe['directions']) < 60:
+            flash("Directions should have a minimum of 60 characters!")
+            is_valid = False
+        if len(recipe['description']) < 25:
+            flash("Description needs to be at least 25 characters!")
+            is_valid = False
+        if len(recipe['spice_level']) < 0:
+            flash("Use a proper spice level!")
+            is_valid = False
+        if len(recipe['genre']) < 3:
+            flash("genre must be at least 3 characters")
+            is_valid = False
+        return is_valid

@@ -14,27 +14,33 @@ def family_create():
         **request.form,
         "hash_pw" : hash_pw
     }   
-    Family.create(info)
+    user_id = Family.create(info)
+    session['uuid'] = user_id
+    print(session['uuid'])
     return redirect('/')
 
 @app.route('/family/update', methods=['POST'])
-def update_family():
-    family = Family.get_one(session['uuid'])
+def update_user():
+    user = Family.get_one(session['uuid'])
     info = {
-        "family_name": request.form['family_name'],
+        "first_name": request.form['first_name'],
+        "last_name": request.form['last_name'],
+        "email": request.form['email'],
+        "pw": user['pw'],
+        "id": session['uuid']
     }
     Family.update_family(info)
     return redirect('/')
 
 @app.route('/user/delete', methods=['POST'])
-def delete_family():
+def delete_user():
     Family.delete_one(session['uuid'])
     session.clear() 
     return redirect('/')
 
 @staticmethod
 def validate_family(family):
-    is_valid = True
+    is_valid = True # we assume this is true
     if len(family['family_name']) < 2:
         flash("First name must be at least 2 characters.")
         is_valid = False 

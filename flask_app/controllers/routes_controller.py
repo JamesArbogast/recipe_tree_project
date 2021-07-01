@@ -13,7 +13,7 @@ def home():
 def dashboard():
     if 'uuid' not in session:
         return redirect('/')
-    render_template('dashboard.html')
+    return render_template('dashboard.html')
 
 @app.route('/login_page')
 def login():
