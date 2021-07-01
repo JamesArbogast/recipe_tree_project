@@ -20,7 +20,7 @@ class Recipe:
 #C
     @classmethod
     def new_recipe(cls, info):
-        query = 'INSERT INTO recipes (recipe_name, ingredient_list, directions, description, spice_level, genre, user_id) VALUES (%(recipe_name)s,%(ingredient_list)s,%(directions)s,%(description)s,%(spice_level)s,%(genre)s,%(user_id)s);'
+        query = "INSERT INTO recipes (recipe_name, ingredient_list, directions, description, spice_level, genre, user_id) VALUES ('%()s', '%()s','%()s, %()s','%()s', %()s , '%()s', %()s);"
 
         data = {
             "recipe_name" : info['recipe_name'],
@@ -28,7 +28,7 @@ class Recipe:
             "directions" : info['directions'],
             "description" : info['description'],
             "spice_level" : info['spice_level'],
-            "genre" : info['genre']
+            "genre" : info['genre'],
             "user_id" : info['user_id']
         }
         return connectToMySQL(DATABASE).query_db(query, data)
@@ -43,9 +43,39 @@ class Recipe:
             recipes.append(cls(one_recipe))
             return recipes
 
+    @classmethod
+    def get_recipe(cls, id):
+        query = "SELECT * FROM recipe where id = %(id)s"
+
+        data = {
+            'recipe_id' : id
+        }
+        return connectToMySQL(DATABASE).query_db(query, data)
 
 #U
+    @classmethod
+    def update_recipe(cls, info):
+        query = "UPDATE recipes set recipe_name = %(recipe_name)s, ingredient_list = %(ingredient_list)s, directions = %(directions)s, description = %(description)s, spice_level = %(spice_level)s, genre = %(genre)s, user_id = %(user_id)s"
 
+        data = {
+            "recipe_name" : info['recipe_name'],
+            "ingredient_list" : info['ingredient_list'],
+            "directions" : info['directions'],
+            "description" : info['description'],
+            "spice_level" : info['spice_level'],
+            "genre" : info['genre'],
+            "user_id" : info['user_id']
+        }
+        return connectToMySQL(DATABASE).query_db(query, data)
 
 
 #D
+
+    @classmethod
+    def delete_recipe(cls, id):
+        query = 'Delete from recipes where id = %(id)s'
+        data = {
+            'id' : id
+        }
+        connectToMySQL(DATABASE).query_db(query, data)
+        return id
