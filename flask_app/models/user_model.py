@@ -77,6 +77,9 @@ class User: #pascal case -> first upper, rest lower, word is singular
         data = {
             "id" : id
         }
+        families_of_user = []
+        for family in families_of_user:
+            families_of_user.append(cls(family))
         result = connectToMySQL(DATABASE_SCHEMA).query_db(query, data)
         return result
 
@@ -86,6 +89,9 @@ class User: #pascal case -> first upper, rest lower, word is singular
         data = {
             "id" : id
         }
+        recipes_for_user = []
+        for recipe in recipes_for_user:
+            recipes_for_user.append(cls(recipe))
         result = connectToMySQL(DATABASE_SCHEMA).query_db(query, data)
         return result
     

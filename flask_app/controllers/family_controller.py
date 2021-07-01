@@ -14,26 +14,20 @@ def family_create():
         **request.form,
         "hash_pw" : hash_pw
     }   
-    user_id = Family.create(info)
-    session['uuid'] = user_id
-    print(session['uuid'])
+    Family.create(info)
     return redirect('/')
 
 @app.route('/family/update', methods=['POST'])
-def update_user():
-    user = Family.get_one(session['uuid'])
+def update_family():
+    family = Family.get_one(session['uuid'])
     info = {
-        "first_name": request.form['first_name'],
-        "last_name": request.form['last_name'],
-        "email": request.form['email'],
-        "pw": user['pw'],
-        "id": session['uuid']
+        "family_name": request.form['family_name'],
     }
     Family.update_family(info)
     return redirect('/')
 
 @app.route('/user/delete', methods=['POST'])
-def delete_user():
+def delete_family():
     Family.delete_one(session['uuid'])
     session.clear() 
     return redirect('/')

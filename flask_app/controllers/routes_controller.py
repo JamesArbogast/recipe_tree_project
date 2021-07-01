@@ -19,7 +19,7 @@ def dashboard():
 def login():
     return render_template('login_page.html')
 
-@app.route('/register_page')
+@app.route('/register')
 def register():
     return render_template('register_page.html')
 
@@ -32,11 +32,11 @@ def dish_id(id):
         }
     return render_template('dishes.html', **context)
 
-@app.route('/create_dish')
+@app.route('/create_recipe')
 def create_dish():
     if 'uuid' not in session:
         return redirect('/')
-    return render_template('create_dish.html')
+    return render_template('create_recipe.html')
 
 @app.route('/recipe_page')
 def recipe_page():
