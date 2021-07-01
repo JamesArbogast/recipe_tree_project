@@ -23,17 +23,14 @@ def login():
 def register():
     return render_template('register_page.html')
 
-@app.route('/dishes')
-def dishes():
+@app.route('/dishes/<int:id>')
+def dish_id(id):
     if 'uuid' not in session:
         return redirect('/')
-    return render_template('dishes.html')
-
-@app.route('/dish/<int:id>')
-def dish_id():
-    if 'uuid' not in session:
-        return redirect('/')
-    return render_template('dish.html')
+    context = {
+            "id" : id
+        }
+    return render_template('dishes.html', **context)
 
 @app.route('/create_dish')
 def create_dish():

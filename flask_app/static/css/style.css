@@ -2,14 +2,61 @@
   margin: 0px;
   padding: 0px;
 }
+.nav {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  background-color: #FFE194;
+}
+.nav-link {
+  color:#4C4C6D;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding-right: 180px;
+}
+.nav-link:hover {
+  color:#B8DFD8;
+}
 .contain {
   max-height: 600px;
   overflow: hidden;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+}
+
+.imgs{
+  height: 65rem;
+}
+
+
+
+.headingP {
+  font-size: 3.5rem;
+  text-align: center;
+  margin: 30px 0px;
+  color:#4C4C6D;
+}
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height:100px;
+  background-color: #4C4C6D;;
+}
+
+.foot-link {
+  text-decoration: none;
+  color: #B8DFD8;
+}
+.foot-link:hover {
+  color: #FFE194;
 }
 /* .banner {
   overflow: hidden;
   max-height: 30vw;
 } */
+/* SEE RECIPE */
+.cardImg {
+  height: 300px;
+}

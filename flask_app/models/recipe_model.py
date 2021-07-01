@@ -68,6 +68,17 @@ class Recipe:
         }
         return connectToMySQL(DATABASE).query_db(query, data)
 
+#D
+
+    @classmethod
+    def delete_recipe(cls, id):
+        query = "DELETE FROM recipes WHERE ID = %(id)s;"
+        data = {
+            "id" : id
+        }
+        connectToMySQL(DATABASE).query_db(query, data)
+        return print(f"The recipe with ID: {id} has been permanently removed!")
+
 
 #D
 
