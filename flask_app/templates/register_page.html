@@ -6,66 +6,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./static/css/style.css">
     <title>Browse Recipe</title>
 </head>
 <body>
 
-  <nav class="nav">
-    <a href="" class="nav-link">Home</a>
-    <a href="" class="nav-link">Browse Dishes</a>
-    <a href="" class="nav-link">Sign up / Login </a>
-  </nav>
 
-    <div class="bkg_content">
-        <div class="main_content"></div>
-            <div class="border">
-                <h1 class="p-4">Register Here</h1><br>
-      <form class="table.responsive" action="/user/create" method="post">
-        <div class="mb-3">
-          <label for="first_name" class="form-label">First Name</label>
-          <input type="text" class="form-control" id="first_name" aria-describedby="emailHelp" name="first_name">
-        <div class="mb-3">
-          <label for="last_name" class="form-label">Last Name</label>
-        <input type="text" id="last_name" class="form-control" aria-describedby="passwordHelpBlock" name="last_name">
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-        <input type="email" id="email" class="form-control" aria-describedby="passwordHelpBlock" name="email">
-        </div>
-        <div class="mb-3">
-          <label for="pw" class="form-label">Password</label>
-        <input type="pw" id="pw" class="form-control" aria-describedby="passwordHelpBlock" name="pw">
-        </div>
-        <div class="mb-3">
-          <label for="inputPassword5" class="form-label">Confirm Password</label>
-        <input type="confirm_pw" id="confirmPassword" class="form-control" aria-describedby="passwordHelpBlock" name="confirm_pw">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+  <body>
+    <div class="form-nav-bkg">
+        <div class="form-nav">
+            <a href="/dashboard" class="form-nav-link">Home</a>
+            <a href="/dishes" class="form-nav-link">Browse Dishes</a>
+            <a href="/login_page" class="form-nav-link">Login </a>
         </div>
     </div>
 
-  <footer>
-    <a class="foot-link" href="">Github</a>
-    <a class="foot-link" href="">Github</a>
-    <a class="foot-link" href="">Github</a>
-  </footer>
-    
+    <div class="bkg_content">
+      <div class="form-main_content-register"></div>
+          <div class="form-border">
+              <h1 class="p-4">Register Here</h1><br>
+
+
+    <form class="table.responsive" action="/user/create" method="post">
+      <div class="mb-3">
+        <label for="first_name" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="first_name" aria-describedby="emailHelp" name="first_name">
+      <div class="mb-3">
+        <label for="last_name" class="form-label">Last Name</label>
+      <input type="text" id="last_name" class="form-control" aria-describedby="passwordHelpBlock" name="last_name">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" class="form-control" aria-describedby="passwordHelpBlock" name="email">
+      </div>
+      <div class="mb-3">
+        <label for="pw" class="form-label">Password</label>
+      <input type="pw" id="pw" class="form-control" aria-describedby="passwordHelpBlock" name="pw">
+      </div>
+      <div class="mb-3">
+        <label for="inputPassword5" class="form-label">Confirm Password</label>
+      <input type="confirm_pw" id="confirmPassword" class="form-control" aria-describedby="passwordHelpBlock" name="confirm_pw">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+      </div>
+  </div>
+
+    <div class="form-foot-bkg">
+      <footer class="form-foot-nav">
+          <a class="form-foot-link" href="">Github</a>
+          <a class="form-foot-link" href="">Github</a>
+          <a class="form-foot-link" href="">Github</a>
+      </footer>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+  </body>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </html>

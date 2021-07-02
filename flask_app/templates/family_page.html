@@ -1,12 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- <<<<<<< HEAD -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <h1>InSanIty</h1>
+    <h1>Insanity</h1>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <title>Browse Recipe</title>
+</head>
+<body>
+
+  <section>
+      <div class="contain">
+
+        <img src="./static/css/imgs/aleisha-kalina-xbKl_a4_8c4-unsplash.jpg" class="img-fluid imgs w-100" alt="">
+        </div>
+        
+      <!-- <img class="main_img" src="" alt=""> -->
+    </div>
+
+  </section>
+
+  <nav class="nav">
+   <a href="/dashboard" class="nav-link">Home</a>
+   <a href="/dishes" class="nav-link">Browse Dishes</a>
+   <a href="/logout" class="nav-link">Sign Out </a>
+  </nav>
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Recipes Added</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{user.id}}</th>
+        
+        <td>{{user.first_name}} {{user.last_name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{recipes}}</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob Thornton</td>
+        <td>jt@email.com</td>
+        <td>1</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h1>Family Recipes</h1>
+  <div class="container">
+  <div class="row mb-4 pt-5">
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="./static/css/imgs/betty-rotaru-wsTyo-16DVg-unsplash.jpg" class="card-img-top cardImg" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">See Recipe</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="./static/css/imgs/ikhsan-baihaqi-RwAXb8Hv_sU-unsplash.jpg" class="card-img-top cardImg" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">See Recipe</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="./static/css/imgs/sigmund-nHq5a_XbIZ0-unsplash.jpg" class="card-img-top cardImg" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">See Recipe</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <a class="foot-link" href="">Github</a>
+  <a class="foot-link" href="">Github</a>
+  <a class="foot-link" href="">Github</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+>>>>>>> 51d67e33e2f5053f0b19f2db76a763f1f6dc0cd8
 </body>
 </html>

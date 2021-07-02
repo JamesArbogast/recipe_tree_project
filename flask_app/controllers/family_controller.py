@@ -2,46 +2,35 @@ from flask_app import app
 from flask import render_template, redirect, request, session, flash
 from flask_app.models.family_model import Family
 from flask_bcrypt import Bcrypt
+import random
+
 bcrypt = Bcrypt(app)
 
-@app.route('/family/create', methods = ['POST'])
+@app.route('/family/new', methods=['POST'])
 def family_create():
-    is_valid = Family.validate_family(request.form)
-    if not is_valid:
-        return redirect('/register')
-    hash_pw = bcrypt.generate_password_hash(request.form['pw'])
+    # is_valid = Family.validate_family(request.form['family_name'])
+    # if not is_valid:
+    #     return redirect('/login')
+    # print(request.form['family_name'])
     info = {
-        **request.form,
-        "hash_pw" : hash_pw
-    }   
-    user_id = Family.create(info)
-    session['uuid'] = user_id
-    print(session['uuid'])
-    return redirect('/')
+        "family_name" : request.form['family_name'],
+        "gen_id" : random.getrandbits(9)
+        }
+    family_id = Family.create(info)
+    print(family_id)
+    return redirect('/family_page')
 
 @app.route('/family/update', methods=['POST'])
-def update_user():
+def update_family():
     user = Family.get_one(session['uuid'])
     info = {
-        "first_name": request.form['first_name'],
-        "last_name": request.form['last_name'],
-        "email": request.form['email'],
-        "pw": user['pw'],
-        "id": session['uuid']
+        "family_name": request.form['family_name']
     }
     Family.update_family(info)
     return redirect('/')
 
-@app.route('/user/delete', methods=['POST'])
-def delete_user():
+@app.route('/family/delete', methods=['POST'])
+def delete_family():
     Family.delete_one(session['uuid'])
     session.clear() 
     return redirect('/')
-
-@staticmethod
-def validate_family(family):
-    is_valid = True # we assume this is true
-    if len(family['family_name']) < 2:
-        flash("First name must be at least 2 characters.")
-        is_valid = False 
-    return is_valid

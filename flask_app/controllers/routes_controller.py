@@ -12,7 +12,7 @@ def home():
 @app.route('/dashboard')
 def dashboard():
     if 'uuid' not in session:
-        return redirect('/')
+        return redirect('/login_page')
     context = {
         "user" : User.get_one(session['uuid'])
     }
@@ -57,7 +57,21 @@ def recipe_page():
 def family_page():
     if 'uuid' not in session:
         return redirect('/')
-    return render_template('family_page.html')
+        
+    recipes = len(User.get_users_recipes('uuid'))
+
+    context = {
+        'user' : User.get_one(session['uuid']),
+        'all_fam' : User.get_users_families('uuid'),
+        'recipes' : recipes
+    }
+    return render_template('family_page.html', **context)
+
+@app.route('/create_fam')
+def create_fam():
+    if 'uuid' not in session:
+        return redirect('/')
+    return render_template('create_fam.html')
 
 @app.route('/user/edit')
 def edit_user():

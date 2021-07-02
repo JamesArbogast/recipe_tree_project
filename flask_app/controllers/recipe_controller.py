@@ -16,4 +16,13 @@ def create_recipe():
 
 @app.route('/recipe/update', methods=['POST'])
 def update_recipe():
+    info = {
+        "recipe_name": request.form['recipe_name'],
+        "ingredient_list": request.form['ingredient_list'],
+        "directions": request.form['directions'],
+        "pw": request.form['description'],
+        "id": request.form['spice_level']
+
+    }
+    Recipe.update_recipe(info)
     return redirect('/dishs.html')

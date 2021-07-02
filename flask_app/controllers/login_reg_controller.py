@@ -17,7 +17,7 @@ def process_login():
         flash("Incorrect Password")
         return redirect('/login')
     session['uuid'] = user['id']
-    return redirect('/')
+    return redirect('/dashboard')
 
 @app.route('/logout')
 def logout():

@@ -20,7 +20,7 @@ class Family: #pascal case -> first upper, rest lower, word is singular
         query = "INSERT INTO families (family_name, gen_id) VALUES (%(family_name)s, %(gen_id)s)"
         data = {
             "family_name" : info['family_name'],
-            "gen_id" : random.getrandbits(7)
+            "gen_id" : info['gen_id']
         }
         print("gen_id")
         new_family_id = connectToMySQL(DATABASE_SCHEMA).query_db(query, data)
@@ -98,7 +98,8 @@ class Family: #pascal case -> first upper, rest lower, word is singular
 
     @staticmethod
     def validate_family(family):
-        is_valid = True # we assume this is true
-        if len(family['recipe_name']) < 4:
-            flash("Recipe name should be more than 4 characters")
+        is_valid = True 
+        if len(family['family_name']) < 2:
+            flash("Family name should be more than 2 characters")
+            is_valid = False
         return is_valid

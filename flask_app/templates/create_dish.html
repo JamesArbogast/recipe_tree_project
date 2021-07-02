@@ -1,14 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <title>Browse Recipe</title>
 </head>
 <body>
-    <h1>
-        Create_Dish!
-    </h1>  
+
+  <div class="form-nav-bkg">
+    <div class="form-nav">
+        <a href="/dashboard" class="form-nav-link">Home</a>
+        <a href="/dishes" class="form-nav-link">Browse Dishes</a>
+        <a href="/logout" class="form-nav-link">Sign Out </a>
+    </div>
+</div>
+
+    <div class="bkg_content">
+        <div class="form-main_content-create_dish"></div>
+            <div class="form-border">
+                <h1 class="p-4">Create Dish</h1><br>
+      <form class="table.responsive" action="/user/create" method="post">
+        <div class="mb-3">
+          <label for="recipe_name" class="form-label">Recipe Name</label>
+          <input type="text" class="form-control" id="recipe_name" aria-describedby="recipeHelp" name="recipe_name">
+        <div class="mb-3">
+          <label for="ingredients" class="form-label">Ingredients</label>
+        <input type="text" id="ingredients" class="form-control" aria-describedby="ingredientsHelpBlock" name="ingredients">
+        </div>
+        <div class="mb-3">
+            <label for="genre" class="form-label">Genre</label>
+            <select id="genre" name="genre">
+                <option value="1">American</option>
+                <option value="2">Italian</option>
+                <option value="3">Spanish</option>
+                <option value="4">Asia</option>
+              </select>
+            </div>
+        <div class="mb-3">
+            <label for="spice_level" class="form-label">Spice Level</label>
+            <select id="spice-level" name="spice-level">
+                <option value="1">🔥</option>
+                <option value="2">🔥🔥</option>
+                <option value="3">🔥🔥🔥</option>
+                <option value="4">🔥🔥🔥🔥</option>
+              </select>
+          </div>
+        <div class="mb-3">
+          <label for="directions" class="form-label">Directions</label>
+          <textarea name="directions" id="directions" cols="30" rows="10"></textarea>
+          <!-- aria-describedby="passwordHelpBlock" -->
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+        </div>
+    </div>
+
+  <div class="form-foot-bkg">
+    <footer class="form-foot-nav">
+        <a class="form-foot-link" href="">Github</a>
+        <a class="form-foot-link" href="">Github</a>
+        <a class="form-foot-link" href="">Github</a>
+    </footer>
+  </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

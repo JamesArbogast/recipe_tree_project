@@ -1,5 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-from flask import flash, session
+from flask import flash, session, request
 from flask_app.models.user_model import User
 
 DATABASE = 'recipe_tree_db'
@@ -20,8 +20,7 @@ class Recipe:
 #C
     @classmethod
     def new_recipe(cls, info):
-        query = 'INSERT INTO recipes (recipe_name, ingredient_list, directions, description, spice_level, genre, users_id) VALUES (%(recipe_name)s,%(ingredient_list)s,%(directions)s,%(description)s,%(spice_level)s,%(genre)s,%(users_id)s);'
-
+        query = 'INSERT INTO recipes (recipe_name, ingredient_list, directions, description, spice_level, genre, users_id) VALUES (%(recipe_name)s, %(ingredient_list)s, %(directions)s, %(description)s, %(spice_level)s, %(genre)s, %(users_id)s);'
         data = {
             "recipe_name" : info['recipe_name'],
             "ingredient_list" : info['ingredient_list'],
@@ -42,6 +41,7 @@ class Recipe:
         for one_recipe in results:
             recipes.append(cls(one_recipe))
             return recipes
+        return results
 
     @classmethod
     def get_recipe(cls,id):
@@ -53,9 +53,8 @@ class Recipe:
 
 #U
     @classmethod
-    def update_recipe(cls, id):
+    def update_recipe(cls, info):
         query = "INSERT INTO recipes SET (recipe_name = %(recipe_name)s, ingredient_list = %(ingredient_list)s, directions = %(directions)s, description = %(description)s, spice_level = %(spice_level)s, genre = %(genre)s, user_id = %(users_id)s);" 
-
         data = {
             "recipe_name" : info['recipe_name'],
             "ingredient_list" : info['ingredient_list'],
@@ -66,7 +65,6 @@ class Recipe:
             "users_id" : info['users_id']
         }
         return connectToMySQL(DATABASE).query_db(query, data) 
-
 
 #D
 
