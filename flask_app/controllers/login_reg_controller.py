@@ -2,6 +2,9 @@ from flask_app import app
 from flask import redirect, render_template, request, session, flash
 from flask_app.models.recipe_model import Recipe
 from flask_app.models.user_model import User
+from flask_bcrypt import Bcrypt
+
+bcrypt = Bcrypt(app)
 
 @app.route('/process_login', methods = ['POST'])
 def process_login():
@@ -10,7 +13,7 @@ def process_login():
         print("User doesn't exist")
         return redirect('/login')
     user = list_of_users[0]
-    if not bcrypt.check_password_hash(user['password'], request.form['password']):
+    if not bcrypt.check_password_hash(user['pw'], request.form['pw']):
         flash("Incorrect Password")
         return redirect('/login')
     session['uuid'] = user['id']

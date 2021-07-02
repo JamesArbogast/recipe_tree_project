@@ -13,7 +13,10 @@ def home():
 def dashboard():
     if 'uuid' not in session:
         return redirect('/')
-    return render_template('dashboard.html')
+    context = {
+        "user" : User.get_one(session['uuid'])
+    }
+    return render_template('dashboard.html', **context)
 
 @app.route('/login_page')
 def login():
@@ -22,6 +25,12 @@ def login():
 @app.route('/register')
 def register():
     return render_template('register_page.html')
+
+@app.route('/dishes')
+def dishes():
+    if 'uuid' not in session:
+        return redirect('/')
+    return render_template('dishes.html')
 
 @app.route('/dishes/<int:id>')
 def dish_id(id):

@@ -14,18 +14,6 @@ def create_recipe():
     Recipe.new_recipe(info)
     return redirect('/recipe_page.html')
 
-@app.route('/recipe/create', methods =['POST'])
-def create_recipe():
-    is_valid = Recipe.validate_recipe(request.form)
-    if not is_valid:
-        return redirect('/create_dish.html')
-    info = {
-        **request.form
-    }
-    Recipe.new_recipe(info)
-    return redirect('/recipe_page.html')
-
-
 @app.route('/recipe/update', methods=['POST'])
 def update_recipe():
     return redirect('/dishs.html')

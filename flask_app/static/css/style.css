@@ -7,6 +7,8 @@
   display: flex;
   justify-content: center;
   background-color: #FFE194;
+  position: absolute;
+  z-index: 100;
 }
 .nav-link {
   color:#4C4C6D;

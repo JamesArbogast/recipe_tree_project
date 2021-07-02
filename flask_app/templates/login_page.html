@@ -6,20 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./static/css/style.css">
-    <title>Browse Recipe</title>
+    <link rel="stylesheet" href="./static/css/form.css">
+    <title>Form Recipe</title>
 </head>
-<body>
-    
-
-
-
+<!-- <body>
     <div class="bkg_content">
-      
-        <div class="main_content">
-        
-        </div>
-        
+        <div class="main_content"></div>
             <div class="border">
               <nav class="nav">
                 <a href="" class="nav-link">Home</a>
@@ -28,16 +20,15 @@
                </nav>
                 <h1 class="p-4">Login Here</h1><br>
 
-      <form class="table.responsive">
+      <form class="table.responsive" action="/process_login" method="post">
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-        <input type="email" id="email" class="form-control" aria-describedby="passwordHelpBlock">
+        <input type="email" id="email" class="form-control" aria-describedby="passwordHelpBlock" name="email">
         </div>
         <div class="mb-3">
           <label for="pw" class="form-label">Password</label>
-        <input type="pw" id="pw" class="form-control" aria-describedby="passwordHelpBlock">
+        <input type="pw" id="pw" class="form-control" aria-describedby="passwordHelpBlock" name="pw">
         </div>
-     
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
         </div>
@@ -50,6 +41,44 @@
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body> -->
+
+<body>
+    
+  <div class="nav">
+      <a href="" class="nav-link">Home</a>
+      <a href="" class="nav-link">Browse Dishes</a>
+      <a href="" class="nav-link">Sign up / Login </a>
+  </div>
+
+  <div class="bkg_content">
+      <div class="main_content"></div>
+      <div class="border">
+          <h1 class="p-4">Login Here</h1><br>
+          <form class="table.responsive">
+              <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" id="email" class="form-control" aria-describedby="passwordHelpBlock">
+              </div>
+              <div class="mb-3">
+                  <label for="pw" class="form-label">Password</label>
+                  <input type="pw" id="pw" class="form-control" aria-describedby="passwordHelpBlock">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+      </div>
+  </div>
+
+  <footer>
+      <a class="foot-link" href="">Github</a>
+      <a class="foot-link" href="">Github</a>
+      <a class="foot-link" href="">Github</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
 </body>
+
 
 </html>
