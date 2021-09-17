@@ -9,47 +9,47 @@
     <link rel="stylesheet" href="./static/css/style.css">
     <title>Form Recipe</title>
 </head>
+    <body>
+    <div class="form-nav-bkg">
+        <div class="form-nav">
+            <a href="/dashboard" class="form-nav-link">Home</a>
+            <a href="/dishes" class="form-nav-link">Browse Dishes</a>
+            <a href="/register" class="form-nav-link">Sign up</a>
+        </div>
+    </div>
+    <div class="bkg_content">
+        <div class="form-main_content-login"></div>
+        <div class="form-border">
+            <h1 class="p-4">Login Here</h1><br>
+            <form class="table.responsive" action="/process_login" method="post">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input placeholder="johnny_doe@email.com" type="email" id="email" class="form-control" aria-describedby="passwordHelpBlock" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="pw" class="form-label">Password</label>
+                    <input placeholder="Password" type="pw" id="pw" class="form-control" aria-describedby="passwordHelpBlock" name="pw">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div>
+                <p class="mt-4">Don't have an account? <a href="">Sign up now!</a></p>
+            </div>
+        </div>
+    </div>
 
-<body>
-  <div class="form-nav-bkg">
-      <div class="form-nav">
-          <a href="/dashboard" class="form-nav-link">Home</a>
-          <a href="/dishes" class="form-nav-link">Browse Dishes</a>
-          <a href="/register" class="form-nav-link">Sign up</a>
-      </div>
-  </div>
 
+    <div class="form-foot-bkg">
+        <footer class="form-foot-nav">
+            <a class="form-foot-link" href="">Github</a>
+            <a class="form-foot-link" href="">Github</a>
+            <a class="form-foot-link" href="">Github</a>
+        </footer>
+    </div>
 
-  <div class="bkg_content">
-      <div class="form-main_content-login"></div>
-      <div class="form-border">
-          <h1 class="p-4">Login Here</h1><br>
-          <form class="table.responsive" action="/process_login" method="post">
-              <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input placeholder="johnny_doe@email.com" type="email" id="email" class="form-control" aria-describedby="passwordHelpBlock" name="email">
-              </div>
-              <div class="mb-3">
-                  <label for="pw" class="form-label">Password</label>
-                  <input placeholder="password" type="pw" id="pw" class="form-control" aria-describedby="passwordHelpBlock" name="pw">
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-      </div>
-  </div>
-
-
-  <div class="form-foot-bkg">
-    <footer class="form-foot-nav">
-        <a class="form-foot-link" href="">Github</a>
-        <a class="form-foot-link" href="">Github</a>
-        <a class="form-foot-link" href="">Github</a>
-    </footer>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
