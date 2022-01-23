@@ -28,7 +28,7 @@ class Recipe:
             "directions" : info['directions'],
             "description" : info['description'],
             "spice_level" : info['spice_level'],
-            "genre" : info['genre']
+            "genre" : info['genre'],
             "user_id" : info['user_id']
         }
         return connectToMySQL(DATABASE).query_db(query, data)
@@ -45,6 +45,20 @@ class Recipe:
 
 
 #U
+    @classmethod
+    def update_recipe(cls, info):
+        query = "INSERT INTO recipes SET (recipe_name = %(recipe_name)s, ingredient_list = %(ingredient_list)s, directions = %(directions)s, description = %(description)s, spice_level = %(spice_level)s, genre = %(genre)s, user_id = %(user_id)s);" 
+
+        data = {
+            "recipe_name" : info['recipe_name'],
+            "ingredient_list" : info['ingredient_list'],
+            "directions" : info['directions'],
+            "description" : info['description'],
+            "spice_level" : info['spice_level'],
+            "genre" : info['genre'],
+            "user_id" : info['user_id']
+        }
+        return connectToMySQL(DATABASE).query_db(query, data)
 
 
 
